@@ -116,13 +116,17 @@ Each plant is traced independently:
 4. Press `S` or click **"Finish Drawing"** when done with that root/stem.
 5. Repeat for each root and stem on the plant.
 
+> **Note:** From the second root/stem onward on the same plant, the **start point is automatically set to the start point of the first root**, regardless of where you click. This ensures all roots for a plant share a common origin.
+
 > Tip: Roots are drawn in plant-specific colours. Stems are drawn in dark green. You can trace up to 10 plants per image with distinct colours.
 
 ### 5. Save and Export
 
 - Press `Ctrl+S` or click **"Save"** to export all measurements.
 - A **CSV file** is saved alongside the image with all length and angle data.
-- A **JSON backup** is also saved so you can reload or regenerate annotated images later.
+- A **`label data/` folder** is created in the same directory as the image, containing:
+  - A **JSON backup** (`.json`) so you can reload or regenerate annotated images later.
+  - A **labeled PNG** (`_label.png`) with the traced curves drawn on a transparent background.
 
 ### 6. Navigate Multiple Images
 
@@ -150,9 +154,19 @@ Each plant is traced independently:
 
 ## Output Files
 
+When you save, three files are written:
+
+```
+<image_directory>/
+├── <image_name>.csv          ← saved alongside the image
+└── label data/
+    ├── <image_name>.json     ← JSON backup
+    └── <image_name>_label.png ← labeled overlay PNG
+```
+
 ### CSV (`<image_name>.csv`)
 
-One row per traced root/stem/angle measurement:
+Saved in the **same folder as the image**. One row per traced root/stem/angle measurement:
 
 | Column | Description |
 |--------|-------------|
@@ -161,9 +175,13 @@ One row per traced root/stem/angle measurement:
 | `Type` | `root`, `stem`, or `angle` |
 | `Measure` | Length in mm, or angle in degrees |
 
-### JSON Backup (`<image_name>.json`)
+### JSON Backup (`label data/<image_name>.json`)
 
-A full backup of all curve points, plant labels, and calculated measurements. Used by `batch_overlay_generator.py` to regenerate annotated images.
+Saved inside the **`label data/`** subfolder. A full backup of all curve points and plant labels. Used by `batch_overlay_generator.py` to regenerate annotated images.
+
+### Labeled PNG (`label data/<image_name>_label.png`)
+
+Saved inside the **`label data/`** subfolder. A transparent-background PNG with all traced curves drawn at original image resolution (roots in black, stems in dark green).
 
 ---
 
