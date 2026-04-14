@@ -2,7 +2,7 @@
 
 **An open-source, educational GUI tool for manually tracing and measuring plant root systems from images.**
 
-Developed for educational and research purposes at [The University of Queensland](https://www.uq.edu.au/). This tool is freely available for students, educators, and researchers who need a simple, hands-on way to measure root architecture from scanned or photographed root images — no image-analysis expertise required.
+Developed for educational and research purposes. This tool is freely available for students, educators, and researchers who need a simple, hands-on way to measure root architecture from scanned or photographed root images — no image-analysis expertise required.
 
 ## License
 
