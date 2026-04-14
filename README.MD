@@ -24,6 +24,8 @@ When you have photos or scans of plant roots (e.g., roots laid on paper), this t
 
 This is particularly useful in plant science education and phenotyping research where automated root detection software is unavailable or too complex.
 
+![Example of root tracing](image/example.png)
+
 ---
 
 ## Installation
